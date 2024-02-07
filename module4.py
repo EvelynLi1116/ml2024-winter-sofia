@@ -7,7 +7,7 @@ def integer_checker():
         
     checker = int(input('Please provide another integer number:'))
     if checker in l_:
-        return l_.index(checker)
+        return l_.index(checker)+1
     else:
         return -1
 
