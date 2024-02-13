@@ -42,9 +42,9 @@ class Integer_Checker():
             dist = dist[np.argsort(dist[:, 0])]
             Y = 0
             for i in range(k):
-                Y += dist[i][1]
+                Y = np.sum([Y,dist[i][1]])
                 
-            return Y/k
+            return np.divide(Y,k)
         
         else:
             raise ValueError('inputted nearest neighbors "k" is greater than total neighbors "N"')
