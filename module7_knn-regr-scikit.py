@@ -1,3 +1,7 @@
+import numpy as np
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.metrics import r2_score
+
 class KNN_Regressor():
     def __init__(self):
         pass
@@ -12,22 +16,16 @@ class KNN_Regressor():
 
     def insertion(self):
         N = self.initialization()
-        x_ = np.array([])
-        y_ = np.array([])
+        x_ = []
+        y_ = []
         for i in range(N):
             x = np.float(input('Please provide a real number x:'))
-            if x_.size == 0:
-                x_ = np.append (x_, [x])
-            else:
-                x_ = np.vstack([x_,[x]])
+            x_.append(x)
                 
             y = np.float(input('Please provide a real number y:'))
-            if y_.size == 0:
-                y_ = np.append (y_, [y])
-            else:
-                y_ = np.vstack([y_,[y]])
+            y_.append(y)
                 
-        return N, x_, y_
+        return N, np.array(x_), np.array(y_)
 
     def knn(self):
         N, x_, y_ = self.insertion()
